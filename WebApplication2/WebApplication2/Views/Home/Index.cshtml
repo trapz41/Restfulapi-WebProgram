@@ -1,0 +1,109 @@
+﻿@model IEnumerable<WebApplication2.Models.Haberler>
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/js/site.js">
+    <title>@ViewData["Title"] - AnaSayfa</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication2.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HABER PORTALI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">SON DAKİKA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Login">Admin Giriş</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div style='text-align:center;'>
+        <h3 style='text-align: center;margin: 55px 0px;border-bottom: 2px solid #666; display:inline-block;padding-bottom:10px'>HABERLER</h3>
+    </div>
+
+    <div class="body-img">
+        <video autoplay muted loop id="bg-video">
+            <source src="~/Content/Image/Image.mp4" type="video/mp4" />
+        </video>
+            <div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel">
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <div class="carousel-caption">
+
+                            <h1> NEWS</h1>
+
+                        </div>
+                    </div>
+
+                    @foreach (var x in Model)
+                    {
+                        <div class="item">
+                            <div class="carousel-caption">
+
+                                <h3>@x.baslik</h3>
+                                <p>@x.duyuru</p>
+                            </div>
+                        </div>
+
+                    }
+
+                    }
+
+                </div>
+       
+    </div>
+    <div class="Fast-news">
+        @foreach (var x in Model)
+        {
+                <div class="conteiner-item">
+
+
+                <h3>@x.baslik</h3>
+                <p>@x.duyuru</p>
+
+            </div>
+
+        }
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carouselFade" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carouselFade" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- partial -->
+    <script src="~/js/site.js"></script>
+
+</body>
+
